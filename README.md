@@ -25,14 +25,14 @@ Since I needed to have image and content side by side (where having heights adju
 
 ```
 <div class="slider-container">
-	<div class="slider-item">
-	  <div>image</div>
-	  <div>content</div>
-  	</div>
-  	<div class="slider-item">
-	  <div>image</div>
-	  <div>content</div>
-  	</div>
+    <div class="slider-item">
+      <div>image</div>
+      <div>content</div>
+    </div>
+    <div class="slider-item">
+      <div>image</div>
+      <div>content</div>
+    </div>
 </div> 
 ```
 
@@ -47,8 +47,8 @@ Since I needed to have image and content side by side (where having heights adju
     opacity: 0;
 }
 
-$(document).ready(function(){	
-	 $(window).scroll( function(){
+$(document).ready(function(){   
+     $(window).scroll( function(){
         $('.fadeInBlock').each(function(){
             
             var bottom_of_object = $(this).position().top + $(this).outerHeight();
@@ -59,8 +59,8 @@ $(document).ready(function(){
           
             if( bottom_of_window > bottom_of_object ){
                 $(this).animate({
-                	'top': '0',
-                	'opacity':'1',
+                    'top': '0',
+                    'opacity':'1',
                     'easing': 'easeInExpo'
                 }, 600);       
             }
@@ -84,28 +84,7 @@ $(document).ready(function(){
 
 **Cons** One of the reasons I picked this plugin is that there is a possiblity to keep sections with standart scrolling behaviour, like header and footer. Hovewer, in my case with tall header and footer as a side effect I got flickering in between those sections. I ended up having all sections as a part of snap scroll and full screen.
 
-
-### 4. Mouse move interaction
-
-**Usage:** For making things move as user moves mouse (an example would be eyes of a cat looking at cursor)
-
-**Dependencies:** jQuery, but can be easily rewritten with vanilla JS
-
-```
-    var bg = $('.moveBlock'); // element which will move
-    var windowWidth = $(window).innerWidth()/10; 
-    // increasing this number (10) will encrease distance in which elements will move 
-    var windowHeight = $(window).innerHeight()/10;
-    
-    //element that will trigger the movement. Can be the same one or a whole document
-    $('.moveBlock').on('mousemove', function(e){ 
-        var mouseX = (e.clientX / windowWidth).toFixed(2);
-        var mouseY = (e.clientY / windowHeight).toFixed(2);
-        bg.css("transform","translate3d(" + mouseX +"px ,"+ mouseY + "px , 0px)");
-    }); 
-```
-
-### 5. Parallax effect
+### 4. Parallax effect
 
 **Usage** The following snippet will create a nice background movement on fixed backgrounds as user scrolls. Handy when there is no complex parallax effects.
 Works by changing background-position with defined speed.
@@ -127,7 +106,7 @@ Works by changing background-position with defined speed.
 
 ``` 
 
-### 6. Pure CSS Parallax effect
+### 5. Pure CSS Parallax effect
 
 **Usage** The following snippet will create a nice background movement on fixed backgrounds as user scrolls. Handy when there is no text on background and when it's OK if background gets zoomed in a bit.
 
@@ -138,6 +117,27 @@ Works by changing background-position with defined speed.
     transform: translateZ(1.5px) scale(1.1);
 }
 
+```
+## Mouse movement effects
+
+### 6. Mouse move interaction
+
+**Usage:** For making things move as user moves mouse (an example would be eyes of a cat looking at cursor)
+
+**Dependencies:** jQuery, but can be easily rewritten with vanilla JS
+
+```
+    var bg = $('.moveBlock'); // element which will move
+    var windowWidth = $(window).innerWidth()/10; 
+    // increasing this number (10) will encrease distance in which elements will move 
+    var windowHeight = $(window).innerHeight()/10;
+    
+    //element that will trigger the movement. Can be the same one or a whole document
+    $('.moveBlock').on('mousemove', function(e){ 
+        var mouseX = (e.clientX / windowWidth).toFixed(2);
+        var mouseY = (e.clientY / windowHeight).toFixed(2);
+        bg.css("transform","translate3d(" + mouseX +"px ,"+ mouseY + "px , 0px)");
+    }); 
 ```
 
 
