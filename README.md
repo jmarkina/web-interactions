@@ -48,14 +48,14 @@ Since I needed to have image and content side by side (where having heights adju
 }
 
 $(document).ready(function(){   
-     $(window).scroll( function(){
+    $(window).scroll( function(){
         $('.fadeInBlock').each(function(){
             
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
+            var bottom_of_object = $(this).offset().top + $(this).outerHeight() / 2;
             
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
             /* Adjust the "200" to either have a delay or that the content starts fading a bit before you reach it  */
-            bottom_of_window = bottom_of_window + 200;  
+            bottom_of_window = bottom_of_window - 100;  
           
             if( bottom_of_window > bottom_of_object ){
                 $(this).animate({
