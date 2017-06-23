@@ -248,7 +248,7 @@ $(document).ready(function () {
 ```
 ## Mouse movement effects
 
-### 6. Mouse move interaction
+### 7. Mouse move interaction
 
 **Usage:** For making things move as user moves mouse (an example would be eyes of a cat looking at cursor)
 
